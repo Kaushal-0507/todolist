@@ -1,0 +1,436 @@
+* {
+  margin: 0;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  overflow-y: hidden;
+}
+
+.theme {
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgb(243, 242, 242);
+  transition: all 0.3s ease;
+}
+
+.theme-option {
+  border-radius: 50px;
+  margin: 5px 0;
+  padding: 3px;
+  vertical-align: middle;
+  cursor: pointer;
+  opacity: 1;
+  height: auto;
+  transition: opacity 1s ease, height 1s ease;
+  overflow: hidden;
+}
+
+.theme-img {
+  border-radius: 50px;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
+}
+
+.todo-list {
+  background-color: rgb(241, 241, 241);
+  width: 50%;
+  /* max-width: 90%; */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  margin: 120px auto 0;
+  position: relative;
+  transition: width 0.8s ease;
+}
+
+.date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #7175bc;
+}
+
+.date-row i {
+  font-size: 22px;
+  margin-right: 10px;
+  display: none;
+}
+
+.todays-date {
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.todays-date p {
+  display: inline;
+  font-size: 18px;
+}
+
+.day-part {
+  font-size: 30px;
+}
+
+.date-bottom-border {
+  width: 100%;
+  border: 2px solid rgba(209, 208, 208, 0.3);
+  margin-bottom: 20px;
+}
+
+.display-input-area {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  background-color: #9599e2;
+  padding: 10px 12px;
+  border-radius: 100px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+  bottom: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.input-area {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.task-input-box {
+  border: 1.5px solid #9599e2;
+  outline: none;
+  padding: 10px 10px 10px 20px;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.task-input-box::placeholder {
+  color: #7175bc;
+}
+
+.add-button {
+  border: 1.5px solid #9599e2;
+  background-color: white;
+  border-radius: 10px;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  color: #7175bc;
+  cursor: pointer;
+  padding: 0px 30px;
+}
+
+.add-button:hover {
+  background-color: #9599e2;
+  color: white;
+  transition: all 0.7s ease;
+}
+
+.date-picker-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.date-input {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.calendar-icon {
+  font-size: 40px;
+  cursor: pointer;
+  color: #9599e2;
+}
+
+.selected-date {
+  font-size: 14px;
+  color: #7175bc;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  border: 1.5px solid #9599e2;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+}
+
+.list-container {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 10px;
+  transition: all 1s ease;
+}
+
+.list-msg {
+  padding-left: 30px;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  color: #7175bc;
+  margin-bottom: 10px;
+  background-color: rgb(244, 244, 244);
+  padding: 10px 0px 10px 30px;
+  max-width: 100%;
+  border-radius: 5px;
+  border: 1.5px solid #9599e2;
+  transition: all 0.5s ease;
+}
+
+.list-msg:hover {
+  background-color: rgba(209, 208, 208, 0.6);
+}
+
+.para-msg {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.para-msg::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #7175bc;
+  transition: width 1s ease-in;
+}
+
+.para-msg.active::after {
+  width: 95%;
+}
+
+.delete-sign {
+  position: absolute;
+  font-size: 26px;
+  left: 5px;
+  top: 1px;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  display: none;
+}
+
+.msg-due-date {
+  position: absolute;
+  right: 15px;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+}
+
+/* Dark Theme */
+.dark-mode .todo-list {
+  background: #1e1e1e;
+  color: white;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+}
+.dark-mode .task-input-box,
+.dark-mode .add-button,
+.dark-mode .list-msg,
+.dark-mode .selected-date {
+  background: #2c2c2c;
+  color: white;
+  border: 1.5px solid #444;
+}
+.dark-mode .add-button:hover {
+  background: #444;
+}
+
+.dark-mode .para-msg::after {
+  height: 3px;
+  background-color: white;
+}
+
+.dark-mode .task-input-box::placeholder {
+  color: white;
+}
+
+.glass-mode .todo-list {
+  background: rgba(255, 255, 255, 0.164);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.glass-mode .task-input-box,
+.glass-mode .add-button,
+.glass-mode .list-msg,
+.glass-mode .selected-date {
+  background: rgba(255, 255, 255, 0.091);
+  backdrop-filter: blur(100px);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: white;
+}
+.glass-mode .add-button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.glass-mode .para-msg::after {
+  height: 3px;
+  background-color: white;
+}
+
+.glass-mode .task-input-box::placeholder {
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  .input-area {
+    align-items: stretch;
+  }
+
+  .task-input-box {
+    width: 100%;
+  }
+
+  .add-button {
+    padding: 16px;
+  }
+
+  .calendar-icon {
+    font-size: 36px;
+  }
+
+  .display-input-area {
+    font-size: 18px;
+    padding: 8px 10px;
+    bottom: -18px;
+  }
+
+  .list-container {
+    grid-template-columns: 1fr;
+  }
+
+  .day-part {
+    font-size: 24px;
+  }
+
+  .todays-date p {
+    font-size: 16px;
+  }
+
+  .theme {
+    padding: 8px;
+  }
+
+  .theme-option {
+    margin: 4px 0;
+  }
+
+  .theme-img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  .todo-list {
+    width: 90%;
+  }
+
+  .input-area {
+    gap: 5px;
+  }
+
+  .task-input-box {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .add-button {
+    padding: 10px;
+  }
+
+  .calendar-icon {
+    font-size: 28px;
+  }
+
+  .display-input-area {
+    font-size: 16px;
+    padding: 6px 8px;
+    bottom: -15px;
+  }
+
+  .day-part {
+    font-size: 20px;
+  }
+
+  .todays-date p {
+    font-size: 14px;
+  }
+
+  .list-container {
+    padding: 0px;
+    grid-template-columns: 1fr;
+  }
+
+  .list-msg {
+    padding-left: 25px;
+    font-size: 12px;
+  }
+
+  .delete-sign {
+    font-size: 22px;
+    top: 2px;
+  }
+
+  .para-msg::after {
+    height: 1px;
+  }
+
+  .date-row:nth-child(2) {
+    font-size: 26px;
+  }
+
+  .para-msg.active::after {
+    width: 92%;
+  }
+
+  .msg-due-date {
+    right: 5px;
+  }
+  .theme {
+    padding: 6px;
+    left: 10px;
+  }
+
+  .theme-option {
+    margin: 3px 0;
+  }
+
+  .theme-img {
+    width: 25px;
+    height: 25px;
+  }
+}

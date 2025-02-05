@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="todo-list.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <span class="theme">
+      <span class="light-theme theme-option" title="Light"
+        ><img class="theme-img" width="35px" src="materials/sunny.png" alt=""
+      /></span>
+      <span class="dark-theme theme-option" title="Dark"
+        ><img class="theme-img" width="38px" src="materials/night.png" alt=""
+      /></span>
+      <span class="glass-theme theme-option" title="Glass"
+        ><img class="theme-img" width="40px" src="materials/glass.png" alt=""
+      /></span>
+    </span>
+    <div class="todo-list">
+      <div class="date-row">
+        <div class="todays-date">
+          <span class="day-part js-day-part"></span>
+          <p class="date-part js-date-part"></p>
+        </div>
+        <i class="fa-solid fa-trash trash-bin"></i>
+      </div>
+      <div class="date-bottom-border"></div>
+      <div class="display-input-area"><i class="fa-solid fa-plus"></i></div>
+      <div class="input-area">
+        <input
+          type="text"
+          placeholder="Add task..."
+          class="task-input-box js-input-box"
+        />
+        <div class="date-picker-container">
+          <i class="fa-regular fa-calendar calendar-icon" id="calendarIcon"></i>
+          <input type="date" id="dateInput" class="date-input" />
+          <span class="selected-date" id="selectedDate"></span>
+        </div>
+        <button class="add-button js-add-button">Add</button>
+      </div>
+      <div class="list-container"></div>
+    </div>
+
+    <script type="module" src="todo.js"></script>
+  </body>
+</html>
