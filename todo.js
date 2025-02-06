@@ -167,7 +167,7 @@ function renderTodoList() {
 }
 
 function displayBin() {
-  if (todoList.length === "0") {
+  if (todoList.length === 0) {
     trashBin.style.display = "none";
   } else {
     trashBin.style.display = "inline-flex";
@@ -222,6 +222,13 @@ function deleteAnimation() {
     }
   });
 }
+trashBin.addEventListener("dblclick", () => {
+  todoList = [];
+  listContainer.innerHTML = "";
+  trashBin.style.display = "none";
+  saveToStorage("todo", todoList);
+  alert("All tasks have been deleted!");
+});
 
 const inputBox = document.querySelector(".js-input-box");
 function addTask() {
@@ -247,8 +254,8 @@ addButton.addEventListener("click", () => {
     alert("Add Task!");
   } else {
     addTask();
-    displayBin();
     deleteAnimation();
+    displayBin();
     saveToStorage("todo", todoList);
   }
 });
