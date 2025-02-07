@@ -355,6 +355,10 @@ body {
     overflow-y: scroll;
   }
 
+  .para-msg::after {
+    height: 3px;
+  }
+
   .todo-list {
     width: 90%;
   }
@@ -403,10 +407,6 @@ body {
   .delete-sign {
     font-size: 22px;
     top: 1.5px;
-  }
-
-  .para-msg::after {
-    height: 1px;
   }
 
   .date-row:nth-child(2) {
